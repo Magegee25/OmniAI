@@ -1,0 +1,10 @@
+agent:
+  name: OmniAI
+  version: 0.1.0
+
+llm:
+  provider: ollama
+  model: qwen3-coder:14b
+
+memory:
+  enabled: true
