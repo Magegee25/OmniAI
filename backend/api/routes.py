@@ -1,10 +1,10 @@
 from fastapi import APIRouter
 
 from backend.api.models import ChatRequest, ChatResponse
-from backend.llm.fake import FakeLLM
+from backend.llm.ollama import OllamaLLM
 
 router = APIRouter()
-llm = FakeLLM()
+ollama = OllamaLLM()
 
 
 @router.get("/")
@@ -17,7 +17,7 @@ def root():
 @router.post("/chat", response_model=ChatResponse)
 def chat(request: ChatRequest):
 
-    response = llm.chat(request.message)
+    response = ollama.chat(request.message)
 
     return ChatResponse(
         success=True,

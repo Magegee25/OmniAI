@@ -4,7 +4,7 @@ agent:
 
 llm:
   provider: ollama
-  model: qwen3-coder:14b
+  model: qwen3:14b
 
 memory:
   enabled: true
