@@ -1,10 +1,10 @@
 from fastapi import APIRouter
 
 from backend.api.models import ChatRequest, ChatResponse
-from backend.llm.ollama import OllamaLLM
+from backend.core.llm_manager import LLMManager
 
 router = APIRouter()
-ollama = OllamaLLM()
+llm = LLMManager()
 
 
 @router.get("/")
@@ -17,7 +17,7 @@ def root():
 @router.post("/chat", response_model=ChatResponse)
 def chat(request: ChatRequest):
 
-    response = ollama.chat(request.message)
+    response = llm.chat(request.message)
 
     return ChatResponse(
         success=True,
